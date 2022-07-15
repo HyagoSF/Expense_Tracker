@@ -29,6 +29,13 @@ const App = () => {
 		},
 	];
 
+	const addExpenseHandler = (expense) => {
+		// console.log('in app.js')
+		// console.log(expense);
+		expenses.push(expense);
+		console.log(expenses);
+	};
+
 	// OLDEST VERSIONS - BEHIND THE HOOD
 	// return React.createElement(
 	// 	'div',
@@ -40,7 +47,7 @@ const App = () => {
 	return (
 		<div>
 			<h1> Learning React </h1>
-			<NewExpense />
+			<NewExpense onAddExpense={addExpenseHandler} />
 			<Expenses data={expenses} />
 		</div>
 	);

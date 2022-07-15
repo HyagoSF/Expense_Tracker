@@ -46,7 +46,9 @@ const ExpenseForm = (props) => {
 			amount: enteredAmount,
 			date: new Date(enteredDate), //to transform date into a new Date object
 		};
-		console.log(expenseData);
+
+		//i'm passing the data got here from inputs into the function that I've made as props above in my parent called OnSaveExpenseData
+		props.onSaveExpenseData(expenseData)
 
 		//to clear the inputs after submitted the form
 		setEnteredTitle('');
@@ -98,4 +100,5 @@ const ExpenseForm = (props) => {
 
 export default ExpenseForm;
 
-//git commit -m 'Handling Form submission' -m 'when this button is pressed and that then we basically gather these different state slices here and combine them into one object which for the moment is then just locked to the console but which we can use for different things later and therefore we wanna listen to the form being submitted.'
+//I've learned how to pass data from parent to child, using props, but now I'm learning how to pass data from child-to-parent
+//to pass from a child to a parent 
