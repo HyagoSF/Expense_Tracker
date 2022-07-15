@@ -2,27 +2,64 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = (props) => {
-	const [enteredTitle, setEnteredTitle] = useState('');
-	const [enteredAmount, setEnteredAmount] = useState('');
-	const [enteredDate, setEnteredDate] = useState('');
+	//using Multiple states
+	// const [enteredTitle, setEnteredTitle] = useState('');
+	// const [enteredAmount, setEnteredAmount] = useState('');
+	// const [enteredDate, setEnteredDate] = useState('');
+
+	//using One state instead
+	const [userInput, setUserInput] = useState({
+		enteredTitle: '',
+		enteredAmount: '',
+		enteredDate: '',
+	});
 
 	const titleChangeHandler = (event) => {
-		setEnteredTitle(event.target.value);
+		// setEnteredTitle(event.target.value);
+		// setUserInput({
+		// 	//I have to copy what I already got not to lost it on the road
+		// 	...userInput,
+		// 	enteredTitle: event.target.value,
+		// });
+
+		// if I depend on the previous states, should use this function here, instead of the one above
+		setUserInput((prevState) => {
+			return { ...prevState, enteredTitle: event.target.value };
+		});
 	};
 
 	const amountChangeHandler = (event) => {
-		setEnteredAmount(event.target.value);
+		// setEnteredAmount(event.target.value);
+		// setUserInput({
+		// 	...userInput,
+		// 	enteredAmount: event.target.value,
+		// });
+
+		// if I depend on the previous states, should use this function here, instead of the one above
+		setUserInput((prevState) => {
+			return { ...prevState, enteredAmount: event.target.value };
+		});
 	};
 
 	const dateChangeHandler = (event) => {
-		setEnteredDate(event.target.value);
+		// setEnteredDate(event.target.value);
+		// setUserInput({
+		// 	...userInput,
+		// 	enteredDate: event.target.value,
+		// });
+
+		// if I depend on the previous states, should use this function here, instead of the one above
+		setUserInput((prevState) => {
+			return { ...prevState, enteredDate: event.target.value };
+		});
 	};
 
 	return (
 		<form>
 			<div className="new-expense__controls">
 				<div className="new-expense__control">
-					<label>Title</label>
+					{/* <label>Title</label> */}
+					<label>{userInput.enteredTitle}</label>
 					<input type="text" onChange={titleChangeHandler} />
 				</div>
 				<div className="new-expense__control">
