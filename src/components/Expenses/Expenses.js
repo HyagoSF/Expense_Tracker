@@ -20,17 +20,22 @@ const Expenses = (props) => {
 					onChangeFilter={filterChangeHandler}
 				/>
 
+				{props.items
+					.filter(
+						(item) =>
+							item.date.getFullYear().toString() === filteredYear
+					)
+					.map((expense) => (
+						<ExpenseItem
+							key={expense.id} //key to identify each element, not to overlay data
+							title={expense.title}
+							amount={expense.amount}
+							date={expense.date}
+						/>
+					))}
+
 				{/* react is capable of rendering it ↓ */}
 				{/* {[<Card/>, <Card/>]} */}
-
-				{props.items.map((expense) => (
-					<ExpenseItem
-						key={expense.id} //key to identify each element, not to overlay data
-						title={expense.title}
-						amount={expense.amount}
-						date={expense.date}
-					/>
-				))}
 			</Card>
 		</div>
 
