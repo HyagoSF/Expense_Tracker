@@ -48,7 +48,7 @@ const ExpenseForm = (props) => {
 		};
 
 		//i'm passing the data got here from inputs into the function that I've made as props above in my parent called OnSaveExpenseData
-		props.onSaveExpenseData(expenseData)
+		props.onSaveExpenseData(expenseData);
 
 		//to clear the inputs after submitted the form
 		setEnteredTitle('');
@@ -92,6 +92,9 @@ const ExpenseForm = (props) => {
 			</div>
 
 			<div className="new-expense__actions">
+				<button onClick={props.onCancel} type="button">
+					Cancel
+				</button>
 				<button type="submit">Add Expense</button>
 			</div>
 		</form>
@@ -101,4 +104,4 @@ const ExpenseForm = (props) => {
 export default ExpenseForm;
 
 //I've learned how to pass data from parent to child, using props, but now I'm learning how to pass data from child-to-parent
-//to pass from a child to a parent 
+//to pass from a child to a parent
