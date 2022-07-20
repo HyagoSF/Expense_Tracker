@@ -48,7 +48,6 @@ const App = () => {
 
 	return (
 		<div>
-			<h1> Learning React </h1>
 			<NewExpense onAddExpense={addExpenseHandler} />
 			<Expenses items={expenses} />
 		</div>
