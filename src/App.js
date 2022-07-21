@@ -38,14 +38,6 @@ const App = () => {
 		});
 	};
 
-	// OLDEST VERSIONS - BEHIND THE HOOD
-	// return React.createElement(
-	// 	'div',
-	// 	{},
-	// 	React.createElement('h1', {}, 'Learning React'),
-	// 	React.createElement(Expenses, { items: expenses })
-	// );
-
 	return (
 		<div>
 			<NewExpense onAddExpense={addExpenseHandler} />

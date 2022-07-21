@@ -43,7 +43,7 @@ const ExpenseForm = (props) => {
 
 		const expenseData = {
 			title: enteredTitle,
-			amount: enteredAmount,
+			amount: +enteredAmount, //use the + to convert the input from a string to a number
 			date: new Date(enteredDate), //to transform date into a new Date object
 		};
 
@@ -102,6 +102,3 @@ const ExpenseForm = (props) => {
 };
 
 export default ExpenseForm;
-
-//I've learned how to pass data from parent to child, using props, but now I'm learning how to pass data from child-to-parent
-//to pass from a child to a parent
